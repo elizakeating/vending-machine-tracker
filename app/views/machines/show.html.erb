@@ -1,6 +1,16 @@
 <h1><%= @machine.location %> Vending Machine</h1>
 
 <h1>Snacks</h1>
+<p>Add a Snack:</p>
+<section id="add-snack">
+  <%= form_with url: "/machines/#{@machine.id}/snacks", method: :patch, data: { turbo: false } do |f| %>
+    <%= f.label :snack_id, "Snack Id:" %>
+    <%= f.number_field :snack_id %>
+    
+    <%= f.submit "Submit" %>
+  <% end %>
+</section>
+
 <section id="snacks">
   <ul>
     <% @machine.snacks.each do |snack| %>
