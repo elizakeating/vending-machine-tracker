@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :snacks, only: [:show]
 
   patch "/machines/:machine_id/snacks", to: "machine_snacks#update"
+  delete "machines/:machine_id/snacks/:snack_id", to: "machine_snacks#destroy"
 end

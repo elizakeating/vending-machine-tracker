@@ -14,7 +14,9 @@
 <section id="snacks">
   <ul>
     <% @machine.snacks.each do |snack| %>
-      <li><%= snack.name %>: <%= number_to_currency(snack.price) %></li>
+      <li><%= snack.name %>: <%= number_to_currency(snack.price) %>
+      <%= button_to "Remove #{snack.name}", "/machines/#{@machine.id}/snacks/#{snack.id}", method: :delete %>
+      </li>
     <% end %>
   </ul>
 <h3>Average Price: <%= number_to_currency(@machine.average_price) %></h3>
